@@ -1,0 +1,9 @@
+.header {
+  background: inherit;
+  /* padding: 10px; */
+}
+
+.header .title {
+  color: black;
+  text-align: center;
+}
