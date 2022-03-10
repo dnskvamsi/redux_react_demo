@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { selectedProduct } from "../redux/actions/productAction";
 import "../CSS/product-details.css";
+import Loading from "./Loading";
+
 export default function ProductDetails() {
   const { productId } = useParams();
   let product = useSelector((state) => state.product);
@@ -24,17 +26,22 @@ export default function ProductDetails() {
     if (productId && productId !== "") fetchProductDetail(productId);
   }, [productId]);
 
-  return (
-    <div className="product-details">
-      <div className="img-container">
-        <img src={image} alt={title}></img>
+  if (Object.keys(product).length === 0) {
+    console.log("inside if", product);
+    return <Loading />;
+  } else {
+    return (
+      <div className="product-details">
+        <div className="img-container">
+          <img src={image} alt={title}></img>
+        </div>
+        <div className="content">
+          <div className="title">{title}</div>
+          <div className="description">{description}</div>
+          <div className="price">Price:- ${price}</div>
+          <div className="category">Category:-{category}</div>
+        </div>
       </div>
-      <div className="content">
-        <div className="title">{title}</div>
-        <div className="description">{description}</div>
-        <div className="price">Price:- ${price}</div>
-        <div className="category">Category:-{category}</div>
-      </div>
-    </div>
-  );
+    );
+  }
 }
