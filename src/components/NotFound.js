@@ -1,9 +1,20 @@
 import React from "react";
-
+import Box from "@mui/material/Box";
+import { Typography, Paper } from "@mui/material";
 export default function NotFound() {
   return (
-    <div className="not-found">
-      <h1>Page Not Found</h1>
-    </div>
+    <Box
+      sx={{ width: "50%" }}
+      m="auto"
+      style={{
+        backgroundColor: "white",
+        textAlign: "center",
+        borderRadius: 20,
+      }}
+    >
+      <Typography varient="h1" mt={10} p={10} style={{ fontSize: 35 }}>
+        Page Not Found
+      </Typography>
+    </Box>
   );
 }

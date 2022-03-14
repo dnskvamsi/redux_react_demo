@@ -1,12 +1,22 @@
 import React from "react";
-import "../CSS/header.css";
-
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import { Link } from "react-router-dom";
+import { Typography } from "@mui/material";
 export default function Header() {
   return (
-    <div className="header">
-      <div className="title">
-        <h1>React Redux Shopping Demo</h1>
-      </div>
-    </div>
+    <Box sx={{ flexGrow: 1 }} mb={15}>
+      <AppBar position="fixed" style={{ textAlign: "center" }}>
+        <Link to="/">
+          <Typography
+            varient="h1"
+            style={{ fontSize: 30, color: "white" }}
+            p={2}
+          >
+            React Redux Shopping Demo
+          </Typography>
+        </Link>
+      </AppBar>
+    </Box>
   );
 }

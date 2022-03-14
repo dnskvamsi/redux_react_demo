@@ -1,14 +1,5 @@
 import React, { Component } from "react";
-const styles = {
-  content: {
-    fontSize: "35px",
-    position: "absolute",
-    left: "0",
-    right: "0",
-    marginTop: "20px",
-    textAlign: "center",
-  },
-};
+import Typography from "@mui/material/Typography";
 
 export default class Loading extends Component {
   constructor(props) {
@@ -30,6 +21,10 @@ export default class Loading extends Component {
   }
 
   render() {
-    return <p style={styles.content}>{this.state.loading}</p>;
+    return (
+      <Typography align="center" variant="h3" color="text.secondary">
+        {this.state.loading}
+      </Typography>
+    );
   }
 }

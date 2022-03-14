@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import "../CSS/product-listing.css";
 import ProductCard from "./ProductCard";
+import Grid from "@mui/material/Grid";
 import axios from "axios";
 import { setProducts } from "../redux/actions/productAction";
 
@@ -19,10 +19,15 @@ export default function ProductListing() {
   React.useEffect(() => {
     fetchProducts();
   }, []);
-  console.log(products);
   return (
-    <div className="product-grid">
+    <Grid
+      container
+      rowSpacing={3}
+      columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+      direction="row"
+      style={{ textAlign: "center" }}
+    >
       <ProductCard />
-    </div>
+    </Grid>
   );
 }
